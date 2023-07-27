@@ -85,22 +85,17 @@ Note: Be sure to merge this branch into `main`!
 ## Questions (5 points)
 
 Edit this file with your answers.
-
-1. What is the difference between `POST` and `PUT`?
-	* < Your answer >  
-
-2. What is the purpose of `ViewData`?
-	* < Your answer >  
-
-3. If the State model of our Tourism application also has a field for `Region` (e.g. `Midwest`, `South`, etc.), what might the url be if want to filter for States in both the South region and Eastern time zone?
-	* < Your answer >  
-
-4. What is the purpose of the `.Remove()` method in the controller code? What do we need to pass in as a parameter when calling `.Remove()`?
-	* < Your answer >  
-
-5. If you wanted to improve the UI of the State Index page, what would be the filepath of the CSS file you need to create? (Hint: to find the full path of a project file, right-click the file in Solution Explorer and select `Copy Full Path`. You can then paste the path elsewhere.)
-	* < Your answer >  
-
+1. What is the difference between `POST` and `PUT`?
+    The difference between `POST` and `PUT`is that  `POST` is used to create a new resources in our MVC application while `PUT` is used to update an already existing resources in our MVC application. 
+2. What is the purpose of `ViewData`?
+	The purpose of view data is too send dynamic data from the view and controller that the view can run a limited amount of logic on to generate dynamic results. An example of this is how we created filters in todays exam. 
+3. If the State model of our Tourism application also has a field for `Region` (e.g. `Midwest`, `South`, etc.), what might the url be if want to filter for States in both the South region and Eastern time zone?
+	I started by looking at my filtered routes in my exam application. I noted that the filters are appended on the current route with some formatting thrown into the route like `?` and `&` almost like sql.  Here is what I came up with:
+	 `/states?region=South&timeZone=Eastern `
+4. What is the purpose of the `.Remove()` method in the controller code? What do we need to pass in as a parameter when calling `.Remove()`?
+    The `.Remove()` method is used in our `DELETE` controller action. It is used for marking a resource in our database for deletion, once we save the context the resource will be deleted from our database. The `.Remove()` method takes a parameter of the objects id we would like to remove. 
+5. If you wanted to improve the UI of the State Index page, what would be the filepath of the CSS file you need to create? (Hint: to find the full path of a project file, right-click the file in Solution Explorer and select `Copy Full Path`. You can then paste the path elsewhere.)
+    I think the file path would be `Tourism\Views\States\Index.StyleSheet.css` I could be wrong this question challenged me
 ## Rubric
 
 This assessment has a total of 20 points.  A score of 15 or higher is a pass.

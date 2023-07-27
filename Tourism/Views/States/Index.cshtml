@@ -1,10 +1,37 @@
-﻿@model List<State>
+﻿@model IEnumerable<State>
 
+@{
+    List<string> allTimeZones = ViewData["AllTimeZones"] as List<string> ?? new List<string>();
+}
 <h1>States</h1>
+<h2>Time Zone Filter</h2>
+
+@if (ViewData["SearchTimeZone"] != null)
+{
+    <p>Filtering by: <strong>@ViewData["SearchTimeZone"]</strong> </p>
+}
+<h3>Time Zones:</h3>
+
+@if (allTimeZones.Count > 0)
+{
+    @foreach (var timeZone in allTimeZones)
+    {
+        <a href="/states?timeZone=@timeZone">@timeZone</a>
+    }
+}
+else
+{
+    <p>Nothing available</p>
+}
+<br />
+<a href="/states">Clear Filter</a>
 
 @foreach (var state in Model)
 {
     <p><strong>@state.Abbreviation</strong>: <a href="/states/@state.Id">@state.Name</a></p>
+    <form action="/states/Delete/@state.Id" method="post">
+        <button type="submit">Delete</button>
+    </form>
 }
 
 <p><a href="/states/new">New State</a></p>
